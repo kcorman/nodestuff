@@ -194,10 +194,13 @@
 	 //function for drawing graphics
 	function updateGraphics(gfx){
 		var canvas=document.getElementById("canvas");
-		if(!canvas.getContext){return;}
+		if(!canvas.getContext){alert("No canvas defined!");}
 		var ctx=canvas.getContext("2d");
 		for(var i = 0;i<gfx.length;i++){
-			ctx.drawImage(images[gfx[i].name],gfx[i].x,gfx[i].y);
+			var image = images[gfx[i].name];	
+			// ctx.drawImage(images[gfx[i].name],gfx[i].x,gfx[i].y);
+			ctx.drawImage(image,gfx[i].x,gfx[i].y);
+			console.log("Drew image: " + image.src);
 		}
 	}
 	

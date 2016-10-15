@@ -1,12 +1,17 @@
 //Server-app for "Escape from the Haunted House"
 //Created by Kenny Corman
 //began project on 12/27/2012
-
-var app = require('http').createServer(handler)
-	, io = require('socket.io').listen(app)
+_dirname = "."
+var express= require('express')
 	, fs = require('fs')
+	, http = require('http')
+	, url = require('url')
+var app = express();
+var server= http.createServer(app);
+io = require('socket.io').listen(server);
+app.use(express.static('.'));
 
-app.listen(8080);
+server.listen(8080);
 
 //************************************** GAME-STATE VARIABLES *****************************************
 var started = false;
@@ -1232,11 +1237,12 @@ function updateGraphics(username, socket){
 }
 //==========================================END GRAPHICS HANDLING =================================
 function handler (req, res) {
-	fs.readFile(_dirname + '/index.html',
+	var uri = url.parse(req.url).pathname;
+	fs.readFile(uri,
 		function (err, data) {
 			if (err) {
 				res.writeHead(500);
-				return res.end('Error loading index.html');
+				return res.end('Error loading ' + process.cwd() + uri + ', err=' + JSON.stringify(err));
 			}
 			res.writeHead(200);
 			res.end(data);
