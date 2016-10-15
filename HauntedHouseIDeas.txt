@@ -1,0 +1,67 @@
+Game ideas for Haunted House
+
+Numbers are approximate:
+
+4 win scenarios:
+	Find all the keys (Win for all Humans)
+	Release and Kill the Boogieman (Win for everybody)
+	Become a Vampire and Kill all Humans
+	Become the Dark One and kill everybody else
+20 Items
+5 Sentient Monsters
+5 Crazy Monsters
+?? Buffs & Curses
+13 Rooms
+
+
+Rooms:
+	Contain default items
+	Contain random items (possibly regenerating)
+	Contain default monsters
+	Contain random monsters
+	Have the ability to react to item uses and player searches
+
+Items:
+	Can statically increase stats
+	Can be 'used'
+		'used' means that either a monster, room, or other play can respond to the use of this item
+		or possibly that this item directly affects an entity
+	Can buff/curse the holder
+	Can alter player win scenarios
+Players:
+	Stats
+		Attack Damage
+		Speed
+		Intelligence
+		Sanity (hidden)
+		
+	Can attack each other/monsters
+	Can pick up and use items
+	Can move
+	Can talk to each other & sentient monsters
+	
+Sentient Monsters:
+	Stats
+		Attack Damage
+		Speed
+	Can attack each other/players
+	Can talk to players thru yes/no questions
+	Can move
+	Can pick up and use items
+
+Crazy Monsters:
+	Stats
+		Attack Damage
+		Speed
+	Can attack each other/players
+	Can move
+	Can shout messages
+	
+Buffs & Curses:
+	Buffs:
+		Can be dispelled
+		Can either have a per turn affect or static affect
+	Curses:
+		Can be dispelled
+		Can either have a per turn affect or static affect
+		Can be hidden to any number of players

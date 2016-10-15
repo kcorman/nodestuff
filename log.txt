@@ -1,0 +1,27 @@
+log:
+just added the keys and the technical way to win escape game mode
+need to add a way to steal items and monsters that steal items
+loot corpse, etc.
+
+also cool idea: vampires
+game mode changes from escaping to drinking enough blood
+
+
+working on item functionality, commands, and hasKeyWords to simplify interpreting
+map_canvas ideas:
+We have a canvas with a black background
+The room with the current player is always the center, perhaps with a scroll button to offset
+rooms are just brown squares with lines to represent doors
+playes appear as dots in the room
+
+mapData is made up of rooms, and each room has an array players
+
+//
+Just added the canvas object and test-draw function
+just finished making enter use the send button
+kind of have rooms working, will eventually define them in a seperate file
+rooms can currently overlap
+next step will probably be to add room randomization
+then graphics
+then a map
+and somewhere it should say what players are in the room

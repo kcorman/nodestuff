@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+	<script src="http://localhost:8080/socket.io/socket.io.js"></script>
+<html>
+
+<head>
+	<title>Hello World Test</title>
+</head>
+
+<script type="text/javascript">
+	////network functions ////
+	var socket = io.connect('http://localhost:8080');
+	var connected = false;
+	//socket.emit('testconnection');
+	
+	function submitname(form){
+		//debugo("in submitname");
+		var username = form.name.value;
+		socket.emit('try_connect',username);
+	}
+	
+	socket.on('testthis', function (data) {
+		alert(data + " has joined the server.");
+		});
+		
+	socket.on('connected', function (data) {
+		alert("You have successfully joined the server.");
+		addPlayer("You");
+	});
+	
+	socket.on('other_connected', function (data) {
+		alert(data + " has joined the server.");
+		addPlayer(data);
+	});
+	
+	function test2(){
+		socket.emit('test2s', [2,3]);
+	}
+	
+	socket.on('test2c', function (data) {
+		debugo(data.toString());
+	});	
+	
+	test2();
+	
+	//end network functions//
+	
+	//this function writes to the debug window
+	function debugo(output){
+		//debug
+		var txtBox = document.getElementById("debugid");
+		txtBox.value += "\n"+output;
+		//
+	}
+	//adds a player onto this clients players' panel
+	function addPlayer(plname){
+		var txtBox = document.getElementById("players_id");
+		txtBox.value += "\n"+plname
+	}
+	
+	function removePlayer(plname){
+	
+	}
+</script>
+
+<body>
+	<form name='sendname' action='' method='get' />
+	<input type='text' name='name' value='' />
+	<input type='button' value='Enter Name' onclick='submitname(this.form)' />
+	
+	<form method="post" action="">
+	<textarea name="comments" id="debugid" cols="25" rows="5">
+	Debug Output:
+	</textarea>
+	<textarea name="players" id="players_id" cols="25" rows="5">
+	Players:
+	</textarea>
+	
+</body>
+</html>
